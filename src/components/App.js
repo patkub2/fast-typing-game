@@ -9,6 +9,8 @@ function App() {
   const [text, setText] = useState(quotes.quotes[Random()].quote);
   const [time, setTime] = useState(5);
   const [typed, setTyped] = useState("");
+  const [correct, setCorrect] = useState("");
+  const [rest, setRest] = useState("");
 
   function Random() {
     var maxNumber = 100;
@@ -21,12 +23,23 @@ function App() {
     setTyped(value);
   }
 
+  String.prototype.removeCharAt = function(i) {
+    var tmp = this.split(""); // convert to an array
+    tmp.splice(i - 1, 1); // remove 1 element from the array (adjusting for non-zero-indexed counts)
+    return tmp.join(""); // reconstruct the string
+  };
+
+  //console.log("crt/r2002_2".removeCharAt(4));
+
   console.log(typed);
   return (
     <div className="App">
       <header className="App-header">
         <a>{time}</a>
-        <a>{text}</a>
+        <a>
+          {typed}
+          {text}
+        </a>
         <Timer />
         <textarea onChange={handleChange} value={typed} />
       </header>
