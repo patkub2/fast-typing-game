@@ -42,11 +42,17 @@ function App() {
     <div className="App">
       <header className="App-header">
         <a>
-          <span className="correct-char">{correct}</span>
+          <span className="App-correct-char">{correct}</span>
           {text}
         </a>
 
-        <textarea onChange={handleChange} value={typed} />
+        <input
+          type="text"
+          className="App-textarea"
+          autoFocus
+          onChange={handleChange}
+          value={typed}
+        />
       </header>
     </div>
   );

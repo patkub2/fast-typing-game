@@ -17,6 +17,14 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
-.correct-char {
+.App-correct-char {
   color: green;
+}
+.App-textarea {
+  background: transparent;
+  border: none;
+}
+input[type="text"] {
+  background: transparent;
+  border: none;
 }
