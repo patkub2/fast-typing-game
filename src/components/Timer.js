@@ -1,18 +1,13 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useEffect } from "react";
 
-function Timer() {
+function Timer(prop = 10) {
   const [counter, setCounter] = React.useState(0.1);
-
   useEffect(() => {
     const timer =
-      counter < 10 && setInterval(() => setCounter(counter + 0.01), 10);
+      counter < prop && setInterval(() => setCounter(counter + 0.01), 10);
     return () => clearInterval(timer);
   }, [counter]);
 
-  return (
-    <div className="App">
-      <div>{counter.toFixed(2)}</div>
-    </div>
-  );
+  return { counter };
 }
 export default Timer;
