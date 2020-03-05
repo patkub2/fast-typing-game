@@ -1,12 +1,11 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import "../App.css";
 import quotes from "./Quotes.json";
 import Timer from "./Timer";
 import useToggler from "./useToggler";
 
-// quotes[Random()].quoteText
 function App() {
-  const [quote, setQuote] = useState([
+  const [quote] = useState([
     quotes[Random()],
     quotes[Random()],
     quotes[Random()]
@@ -34,27 +33,21 @@ function App() {
   };
 
   function handleKeyDown(e) {
-    //console.log(upText);
-    //console.log(text);
     const value = e.key;
-    if (value == text.charAt(0)) {
+    if (value === text.charAt(0)) {
       setText(text.removeCharAt(1));
       setCorrect(prevCorrect => prevCorrect + value);
     }
   }
 
   function WordCount(str) {
-    if (str == "") return 0;
+    if (str === "") return 0;
     else return setWords(prevWords => prevWords + str.trim().split(" ").length);
   }
 
-  if (correct == upText && rest == 1) {
-    //setRest(2);
-    //console.log("You win");
-    setTime(counter.toFixed(2));
+  if (correct === upText && rest === 1) {
+    setTime(counter.toFixed(0));
     WordCount(correct);
-    //toggle();
-    //console.log(time);
     resetQuote();
   }
 
@@ -64,8 +57,6 @@ function App() {
       setUpText(quote[1 + i].quoteText);
       setText(quote[1 + i].quoteText);
       setCorrect("");
-      //toggle();
-      console.log(i);
     } else {
       toggle();
       setRest(2);
@@ -74,16 +65,11 @@ function App() {
 
   useEffect(() => {
     document.getElementById("mainHeader").focus();
-    //console.log(time);
   });
   useEffect(() => {
-    //console.log(time);
     let ddds = 60 / time;
     let dds = ddds * words;
-    //  console.log(ddds);
-    //  console.log(words);
-    //  console.log(dds);
-    setWps(dds.toFixed(1));
+    setWps(dds.toFixed(0));
   }, [time]);
 
   return (
@@ -91,43 +77,40 @@ function App() {
       <header className="App-header">
         <nav style={{ display: show ? "block" : "none" }}>
           <p>
-            <a>
+            <span>
               You are able to type{" "}
               <span className="App-correct-char">{wps}</span> words per minute.
-              Nice.
-            </a>
+            </span>
           </p>
           <p>
-            <a>
+            <span>
               You typed 3 quotes in{" "}
-              <span className="App-correct-char">{time}</span> seconds
-            </a>
+              <span className="App-correct-char">{time}</span> seconds.
+            </span>
           </p>
           <p>
-            <a className="App-quotes">
+            <span className="App-quotes">
               {quote[0].quoteText}- {quote[0].quoteAuthor}
-            </a>
+            </span>
           </p>
           <p>
-            <a className="App-quotes">
+            <span className="App-quotes">
               {quote[1].quoteText}- {quote[1].quoteAuthor}
-            </a>
+            </span>
           </p>
           <p>
-            <a className="App-quotes">
+            <span className="App-quotes">
               {quote[2].quoteText}- {quote[2].quoteAuthor}
-            </a>
+            </span>
           </p>
         </nav>
 
         <nav style={{ display: show ? "none" : "block" }}>
-          <a>
+          <p>
             <span className="App-correct-char">{correct}</span>
             {text}
-          </a>
-          <p>
-            <a>{counter.toFixed(2)}</a>
           </p>
+          <p>{counter.toFixed(2)}</p>
         </nav>
       </header>
     </div>
