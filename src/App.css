@@ -31,3 +31,17 @@ input[type="text"] {
 .App-quotes {
   font-family: "Dancing Script", cursive;
 }
+.button {
+  font-size: calc(10px + 2vmin);
+  background-color: #282c34;
+  color: white;
+  border: 2px solid white; /* Green */
+  padding: 15px 32px;
+  transition-duration: 0.4s;
+  border-radius: 8px;
+}
+.button:hover {
+  background-color: white; /* Green */
+  color: #282c34;
+  border: 2px solid white;
+}

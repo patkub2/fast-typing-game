@@ -19,7 +19,7 @@ function App() {
   return (
     <div>
       <Router>
-        <Game path="game" endcard={endcard} />
+        <Game path="game" gamerestart={gamerestart} />
         <EndCard path="endcard" />
         <WelcomePage path="/" gamestart={gamestart} />
       </Router>

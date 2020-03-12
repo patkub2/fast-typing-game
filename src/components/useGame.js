@@ -8,7 +8,10 @@ function useGame() {
   const [quote] = useState([
     quotes[Random()],
     quotes[Random()],
-    quotes[Random()]
+    quotes[Random()],
+    quotes[""],
+    quotes[""],
+    quotes[""]
   ]);
   const [text, setText] = useState(quote[0].quoteText);
   const [upText, setUpText] = useState(quote[0].quoteText);
