@@ -1,17 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "../App.css";
 import useGame from "./useGame";
 
 function EndCard() {
   const {
     handleKeyDown,
-    show,
+
     wps,
     time,
     quote,
-    correct,
-    text,
-    counter
   } = useGame();
   return (
     <div className="App" tabIndex="0" onKeyDown={handleKeyDown} id="mainHeader">

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "../App.css";
 import useGame from "./useGame";
 
@@ -11,7 +11,7 @@ function Game({ gamerestart }) {
     quote,
     correct,
     text,
-    counter
+    counter,
   } = useGame();
 
   function Gamerestart() {

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "../App.css";
 import Game from "./Game";
 import EndCard from "./EndCard";
@@ -9,10 +9,7 @@ function App() {
   const gamestart = () => {
     navigate("game");
   };
-  const endcard = () => {
-    console.log(endcard);
-    navigate("endcard");
-  };
+
   const gamerestart = () => {
     navigate("/");
   };

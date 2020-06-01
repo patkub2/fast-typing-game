@@ -11,7 +11,7 @@ function useGame() {
     quotes[Random()],
     quotes[""],
     quotes[""],
-    quotes[""]
+    quotes[""],
   ]);
   const [text, setText] = useState(quote[0].quoteText);
   const [upText, setUpText] = useState(quote[0].quoteText);
@@ -25,11 +25,11 @@ function useGame() {
   const [i, setI] = useState(0);
 
   function Random() {
-    var maxNumber = 400;
+    var maxNumber = 100;
     var randomNumber = Math.floor(Math.random() * maxNumber + 1);
     return randomNumber;
   }
-  String.prototype.removeCharAt = function(i) {
+  String.prototype.removeCharAt = function (i) {
     var tmp = this.split(""); // convert to an array
     tmp.splice(i - 1, 1); // remove 1 element from the array (adjusting for non-zero-indexed counts)
     return tmp.join(""); // reconstruct the string
@@ -39,13 +39,14 @@ function useGame() {
     const value = e.key;
     if (value === text.charAt(0)) {
       setText(text.removeCharAt(1));
-      setCorrect(prevCorrect => prevCorrect + value);
+      setCorrect((prevCorrect) => prevCorrect + value);
     }
   }
 
   function WordCount(str) {
     if (str === "") return 0;
-    else return setWords(prevWords => prevWords + str.trim().split(" ").length);
+    else
+      return setWords((prevWords) => prevWords + str.trim().split(" ").length);
   }
 
   if (correct === upText && rest === 1) {
@@ -56,7 +57,7 @@ function useGame() {
 
   function resetQuote() {
     if (i < 2) {
-      setI(prev => prev + 1);
+      setI((prev) => prev + 1);
       setUpText(quote[1 + i].quoteText);
       setText(quote[1 + i].quoteText);
       setCorrect("");
