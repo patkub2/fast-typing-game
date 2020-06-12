@@ -17,14 +17,6 @@ function Game({ gamerestart }) {
   function Gamerestart() {
     gamerestart();
   }
-  //useEffect(
-  //
-  //  () => {
-  //    endcard();
-  //  },
-  //  { show }
-  //);
-
   return (
     <div className="App" tabIndex="0" onKeyDown={handleKeyDown} id="mainHeader">
       <header className="App-header">
