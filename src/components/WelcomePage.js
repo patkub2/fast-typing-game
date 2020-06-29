@@ -8,7 +8,7 @@ function WelcomPage({ gamestart }) {
 
   return (
     <div className="App" tabIndex="0" onKeyDown={gamestart} id="mainHeader">
-      <header class="welcompage__header">Press any key to start...</header>
+      <header className="welcompage__header">Press any key to start...</header>
     </div>
   );
 }
